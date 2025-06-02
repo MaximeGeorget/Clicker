@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, View, Button, GestureResponderEvent } from "react-native";
 import { bonus } from "@/lib/bonus";
 
@@ -6,6 +6,7 @@ export default function Index() {
   const [clicks, setClicks] = useState(0);
   const [score, setScore] = useState(0);
   const [scoredLastClick, setScoredLastClick] = useState(0);
+  const [averageScorePerClick, setAverageScorePerClick] = useState(0);
   const [bestScored, setBestScored] = useState(0);
   const [maxBonusNumber, setMaxBonusNumber] = useState(5);
   const [bonusNumber, setBonusNumber] = useState(0);
@@ -40,6 +41,14 @@ export default function Index() {
       });
     }
   }
+  useEffect(() => {
+    if (clicks === 0) {
+      setAverageScorePerClick(0);
+    }
+    else {
+      setAverageScorePerClick(Number((score / clicks).toFixed(1)));
+    }
+  }, [score, clicks]);
   return (
     <View
       style={{
@@ -51,6 +60,7 @@ export default function Index() {
       <Text>Clicks : {clicks}</Text>
       <Text>Score : {score}</Text>
       <Text>Scored last click : {scoredLastClick}</Text>
+      <Text>Average scored per click : {averageScorePerClick}</Text>
       <Text>Best scored in one click : {bestScored}</Text>
       <Button title="Bouton" onPress={whenButtonClicked}></Button>
       <Text>Bonus : {bonusNumber}/{maxBonusNumber}</Text>

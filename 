@@ -1,0 +1,38 @@
+[33mcommit a84bdb1df7ba61831e8a4487cdaf001172caa5ac[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: MaximeGeorget <131368698+MaximeGeorget@users.noreply.github.com>
+Date:   Tue May 6 00:18:16 2025 +0200
+
+    Added the bonus list and showed the active bonuses
+
+[33mcommit 39131e9168a617d3d8f6d7c1710c2370628ce1f0[m
+Author: MaximeGeorget <131368698+MaximeGeorget@users.noreply.github.com>
+Date:   Mon May 5 22:45:37 2025 +0200
+
+    Add a button and a score display
+
+[33mcommit 09d01db7e831351c9bb867330a217ed045750fa5[m
+Merge: a423a68 83e4f03
+Author: Damien Schneider <74979845+damien-schneider@users.noreply.github.com>
+Date:   Sat May 3 22:47:25 2025 +0200
+
+    Merge pull request #1 from MaximeGeorget/update-home-page
+    
+    🔥 Remove unnecessary text from the main screen
+
+[33mcommit 83e4f0372d69bb0bed0f55ddac25b91a4a4de981[m[33m ([m[1;31morigin/update-home-page[m[33m, [m[1;32mupdate-home-page[m[33m)[m
+Author: Damien Schneider <damien.schneider01@gmail.com>
+Date:   Sat May 3 22:42:08 2025 +0200
+
+    🔥 Remove unnecessary text from the main screen
+
+[33mcommit a423a687932ba89790c3e9e5785df72fce7f7564[m
+Author: Damien Schneider <damien.schneider01@gmail.com>
+Date:   Sat May 3 22:35:16 2025 +0200
+
+    Added important text on home page
+
+[33mcommit 351d08b679343cde7db379d3a3add7e8ce576aa6[m
+Author: MaximeGeorget <131368698+MaximeGeorget@users.noreply.github.com>
+Date:   Sat May 3 22:02:49 2025 +0200
+
+    Initialize repository
