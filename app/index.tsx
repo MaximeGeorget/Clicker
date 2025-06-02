@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text, View, Button, GestureResponderEvent } from "react-native";
+import { Text, View, Button, GestureResponderEvent, TouchableOpacity } from "react-native";
 import { bonus } from "@/lib/bonus";
 
 export default function Index() {
@@ -15,7 +15,11 @@ export default function Index() {
   function calculateScore(actualScore: number) {
     let newScore = 1;
     for (let i = 0; i < activeBonusList.length; i++) {
-      newScore = activeBonusList[i].scoreModificator(newScore);
+      let bonusScoreModificatorParam = {
+        score: newScore,
+        clicks: clicks,
+      }
+      newScore = Math.round((activeBonusList[i].scoreModificator(bonusScoreModificatorParam) + Number.EPSILON) * 100) / 100;
     };
     setScoredLastClick(newScore);
     if (newScore > bestScored) {
@@ -30,7 +34,7 @@ export default function Index() {
     setClicks((previousClicks) => {
       return previousClicks + 1;
     });
-    setScore(calculateScore(score));
+    setScore(Math.round((calculateScore(score) + Number.EPSILON) * 100) / 100);
     if (randomNumber === 0 && bonusNumber < maxBonusNumber) {
       // setActiveBonusList([...activeBonusList, bonus[getRandomInt(bonus.length)]]);
       setActiveBonusList((previousActiveBonusList) => {
@@ -41,14 +45,16 @@ export default function Index() {
       });
     }
   }
+
   useEffect(() => {
     if (clicks === 0) {
       setAverageScorePerClick(0);
     }
     else {
-      setAverageScorePerClick(Number((score / clicks).toFixed(1)));
+      setAverageScorePerClick(Math.round(((score / clicks) + Number.EPSILON) * 100) / 100);
     }
   }, [score, clicks]);
+
   return (
     <View
       style={{
@@ -66,8 +72,11 @@ export default function Index() {
       <Text>Bonus : {bonusNumber}/{maxBonusNumber}</Text>
       {/* <Text>Le bonus est {isBonusActive ? "actif" : "inactif"}</Text> */}
       {activeBonusList.map((activeBonus) => {
+        let k = activeBonusList.length + 1;
         return (
-          <Text>{activeBonus.name}</Text>
+          <TouchableOpacity>
+            <Text>{activeBonus.name}</Text>
+          </TouchableOpacity>
         )
       })}
     </View>

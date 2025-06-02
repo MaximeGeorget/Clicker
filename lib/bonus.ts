@@ -1,10 +1,15 @@
+type BonusScoreModificatorParam = {
+    score: number;
+    clicks: number;
+}
+
 export const bonus = [
-    {
+    /*{
         slug: "plus-two",
         name: "+ 2",
         rarity: "common",
-        scoreModificator: (score: number) => {
-            const modifiedScore = score + 2;
+        scoreModificator: (params: BonusScoreModificatorParam) => {
+            const modifiedScore = params.score + 2;
             return modifiedScore;
         },
     },
@@ -12,8 +17,8 @@ export const bonus = [
         slug: "times-two",
         name: "* 2",
         rarity: "common",
-        scoreModificator: (score: number) => {
-            const modifiedScore = score * 2;
+        scoreModificator: (params: BonusScoreModificatorParam) => {
+            const modifiedScore = params.score * 2;
             return modifiedScore;
         },
     },
@@ -21,8 +26,8 @@ export const bonus = [
         slug: "plus-random",
         name: "+ random",
         rarity: "common",
-        scoreModificator: (score: number) => {
-            const modifiedScore = score + getRandomInt(10);
+        scoreModificator: (params: BonusScoreModificatorParam) => {
+            const modifiedScore = params.score + getRandomInt(10);
             return modifiedScore;
         },
     },
@@ -30,12 +35,22 @@ export const bonus = [
         slug: "times-random",
         name: "* random",
         rarity: "common",
-        scoreModificator: (score: number) => {
-            const modifiedScore = score * (1 + getRandomInt(3));
+        scoreModificator: (params: BonusScoreModificatorParam) => {
+            const modifiedScore = params.score * (1 + getRandomInt(3));
+            return modifiedScore;
+        },
+    }, */
+    {
+        slug: "clicks-percentage",
+        name: "% clicks",
+        rarity: "rare",
+        scoreModificator: (params: BonusScoreModificatorParam) => {
+            const modifiedScore = params.score + params.clicks * 0.01;
             return modifiedScore;
         },
     },
 ]
+
 
 
 
